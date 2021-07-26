@@ -1,6 +1,6 @@
 name: proper_filesize
-description: a self-contained dart library that converts bytes to human readable file sizes and backwards. Also supports binary units.
-version: 0.0.1
+description: a self-contained dart library that converts bytes to human readable file sizes and backwards. Supports binary and metric units.
+version: 0.0.2
 homepage: https://github.com/joaquimguimaraes/proper_filesize
 
 environment:
