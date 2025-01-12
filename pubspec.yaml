@@ -1,9 +1,5 @@
 name: proper_filesize
-description: >-
-  A versatile Dart library for converting between bytes and human-readable file
-  sizes (e.g., "1.2 KB", "3.5 MB", "1.5 GiB") with support for both binary
-  (KiB, MiB, GiB) and metric (KB, MB, GB) units, customizable decimal
-  precision, and long format types (e.g., "KB" vs "kilobyte").
+description: Easily convert and format file sizes in your Dart applications. This library handles bytes, metric/binary units, and provides human-readable output for user interfaces, data processing, and more.
 version: 1.0.0
 homepage: https://github.com/gilnobrega/proper_filesize
 
