@@ -1,0 +1,4 @@
+enum FormatType {
+  short,
+  long,
+}

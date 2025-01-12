@@ -5,7 +5,7 @@ main() {
   String binaryFilesize = "1.2 EiB";
 
   int binaryBytes =
-      ProperFilesize.parseHumanReadableFilesize(binaryFilesize).toInt();
+      FileSize.parseHumanReadableFilesize(binaryFilesize).toInt();
 
   print("$binaryFilesize is $binaryBytes bytes");
   // this will print
@@ -15,7 +15,7 @@ main() {
   String metricFilesize = "1.2 EB";
 
   int metricBytes =
-      ProperFilesize.parseHumanReadableFilesize(metricFilesize).toInt();
+      FileSize.parseHumanReadableFilesize(metricFilesize).toInt();
 
   print("$metricFilesize is $metricBytes bytes");
   // this will print
@@ -25,15 +25,19 @@ main() {
   int bytes = 1.24356e9.toInt();
 
   String metricHumanReadableFilesize =
-      ProperFilesize.generateHumanReadableFilesize(bytes,
-          base: Bases.Metric, decimals: 3);
+      FileSize.generateHumanReadableFilesize(
+      bytes,
+      baseType: BaseType.metric,
+      decimals: 3);
   print("$bytes bytes is $metricHumanReadableFilesize");
   //this will print
   // 1243560000 bytes is 1.244 GB
 
   String binaryHumanReadableFilesize =
-      ProperFilesize.generateHumanReadableFilesize(bytes,
-          base: Bases.Binary, decimals: 3);
+      FileSize.generateHumanReadableFilesize(
+      bytes,
+      baseType: BaseType.binary,
+      decimals: 3);
   print("$bytes bytes is $binaryHumanReadableFilesize");
   //this will print
   // 1243560000 bytes is 1.158 GiB
