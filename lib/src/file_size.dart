@@ -55,9 +55,13 @@ final class FileSize {
       baseType: BaseType.binary,
     );
 
-    num value = size / (Math.pow(unit.baseType.value, unit.orderOfMagnitude));
+    num value = toSize(unit: unit);
 
     return "${value.toStringAsFixed(decimals)} ${unit.representation[formatType]}";
+  }
+
+  num toSize({required Unit unit}) {
+    return size / (Math.pow(unit.baseType.value, unit.orderOfMagnitude));
   }
 }
 
