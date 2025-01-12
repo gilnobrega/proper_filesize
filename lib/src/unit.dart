@@ -1,142 +1,143 @@
-import 'package:proper_filesize/src/base_type.dart';
-import 'package:proper_filesize/src/format_type.dart';
-import 'dart:math' as Math;
+import "dart:math" as math;
+
+import "package:proper_filesize/src/base_type.dart";
+import "package:proper_filesize/src/format_type.dart";
 
 enum Unit {
   byte(
     orderOfMagnitude: 0,
     baseType: BaseType.metric,
-    representation: {
-      FormatType.short: 'B',
-      FormatType.long: 'byte',
+    representation: <FormatType, String>{
+      FormatType.short: "B",
+      FormatType.long: "byte",
     },
   ),
   kilobyte(
     orderOfMagnitude: 1,
     baseType: BaseType.metric,
-    representation: {
-      FormatType.short: 'KB',
-      FormatType.long: 'kilobyte',
+    representation: <FormatType, String>{
+      FormatType.short: "KB",
+      FormatType.long: "kilobyte",
     },
   ),
   megabyte(
     orderOfMagnitude: 2,
     baseType: BaseType.metric,
-    representation: {
-      FormatType.short: 'MB',
-      FormatType.long: 'megabyte',
+    representation: <FormatType, String>{
+      FormatType.short: "MB",
+      FormatType.long: "megabyte",
     },
   ),
   gigabyte(
     orderOfMagnitude: 3,
     baseType: BaseType.metric,
-    representation: {
-      FormatType.short: 'GB',
-      FormatType.long: 'gigabyte',
+    representation: <FormatType, String>{
+      FormatType.short: "GB",
+      FormatType.long: "gigabyte",
     },
   ),
   terabyte(
     orderOfMagnitude: 4,
     baseType: BaseType.metric,
-    representation: {
-      FormatType.short: 'TB',
-      FormatType.long: 'terabyte',
+    representation: <FormatType, String>{
+      FormatType.short: "TB",
+      FormatType.long: "terabyte",
     },
   ),
   petabyte(
     orderOfMagnitude: 5,
     baseType: BaseType.metric,
-    representation: {
-      FormatType.short: 'PB',
-      FormatType.long: 'petabyte',
+    representation: <FormatType, String>{
+      FormatType.short: "PB",
+      FormatType.long: "petabyte",
     },
   ),
   exabyte(
     orderOfMagnitude: 6,
     baseType: BaseType.metric,
-    representation: {
-      FormatType.short: 'EB',
-      FormatType.long: 'exabyte',
+    representation: <FormatType, String>{
+      FormatType.short: "EB",
+      FormatType.long: "exabyte",
     },
   ),
   zetabyte(
     orderOfMagnitude: 7,
     baseType: BaseType.metric,
-    representation: {
-      FormatType.short: 'ZB',
-      FormatType.long: 'zettabyte',
+    representation: <FormatType, String>{
+      FormatType.short: "ZB",
+      FormatType.long: "zettabyte",
     },
   ),
   yottabyte(
     orderOfMagnitude: 8,
     baseType: BaseType.metric,
-    representation: {
-      FormatType.short: 'YB',
-      FormatType.long: 'yottabyte',
+    representation: <FormatType, String>{
+      FormatType.short: "YB",
+      FormatType.long: "yottabyte",
     },
   ),
   kibibyte(
     orderOfMagnitude: 1,
     baseType: BaseType.binary,
-    representation: {
-      FormatType.short: 'KiB',
-      FormatType.long: 'kibibyte',
+    representation: <FormatType, String>{
+      FormatType.short: "KiB",
+      FormatType.long: "kibibyte",
     },
   ),
   mebibyte(
     orderOfMagnitude: 2,
     baseType: BaseType.binary,
-    representation: {
-      FormatType.short: 'MiB',
-      FormatType.long: 'mebibyte',
+    representation: <FormatType, String>{
+      FormatType.short: "MiB",
+      FormatType.long: "mebibyte",
     },
   ),
   gibibyte(
     orderOfMagnitude: 3,
     baseType: BaseType.binary,
-    representation: {
-      FormatType.short: 'GiB',
-      FormatType.long: 'gibibyte',
+    representation: <FormatType, String>{
+      FormatType.short: "GiB",
+      FormatType.long: "gibibyte",
     },
   ),
   tebibyte(
     orderOfMagnitude: 4,
     baseType: BaseType.binary,
-    representation: {
-      FormatType.short: 'TiB',
-      FormatType.long: 'tebibyte',
+    representation: <FormatType, String>{
+      FormatType.short: "TiB",
+      FormatType.long: "tebibyte",
     },
   ),
   pebibyte(
     orderOfMagnitude: 5,
     baseType: BaseType.binary,
-    representation: {
-      FormatType.short: 'PiB',
-      FormatType.long: 'pebibyte',
+    representation: <FormatType, String>{
+      FormatType.short: "PiB",
+      FormatType.long: "pebibyte",
     },
   ),
   exbibyte(
     orderOfMagnitude: 6,
     baseType: BaseType.binary,
-    representation: {
-      FormatType.short: 'EiB',
-      FormatType.long: 'exbibyte',
+    representation: <FormatType, String>{
+      FormatType.short: "EiB",
+      FormatType.long: "exbibyte",
     },
   ),
   zebibyte(
     orderOfMagnitude: 7,
     baseType: BaseType.binary,
-    representation: {
-      FormatType.short: 'ZiB',
-      FormatType.long: 'zebibyte',
+    representation: <FormatType, String>{
+      FormatType.short: "ZiB",
+      FormatType.long: "zebibyte",
     },
   ),
   yobibyte(
     orderOfMagnitude: 8,
     baseType: BaseType.binary,
-    representation: {
-      FormatType.short: 'YiB',
-      FormatType.long: 'yobibyte',
+    representation: <FormatType, String>{
+      FormatType.short: "YiB",
+      FormatType.long: "yobibyte",
     },
   ),
   ;
@@ -152,40 +153,44 @@ enum Unit {
 
   /// Largest unit for a given number of bytes
   static Unit auto({
-    required num size,
-    required BaseType baseType,
+    required final num size,
+    required final BaseType baseType,
   }) {
-    final inputOrderOfMagnitude =
+    final int inputOrderOfMagnitude =
         size < baseType.value ? 0 : _logBase(size, baseType.value).floor();
     return Unit.values
-        .where((unit) => unit.baseType == baseType)
+        .where((final Unit unit) => unit.baseType == baseType)
         .toList()
         .sortFromSmallestToLargest()
         .lastWhere(
-          (unit) => unit.orderOfMagnitude <= inputOrderOfMagnitude,
+          (final Unit unit) => unit.orderOfMagnitude <= inputOrderOfMagnitude,
           orElse: () => Unit.byte,
         );
   }
 
-  static Unit parse(String input) {
-    return Unit.values.toList().sortFromLargestToSmallest().firstWhere(
-          (unit) => unit.representation.entries.any(
-            (entry) => input.contains(entry.value),
+  static Unit parse(final String input) =>
+      Unit.values.toList().sortFromLargestToSmallest().firstWhere(
+            (final Unit unit) => unit.representation.entries.any(
+              (final MapEntry<FormatType, String> entry) =>
+                  input.contains(entry.value),
           ),
           orElse: () => Unit.byte,
-        );
-  }
+          );
 }
 
 // converts natural logarithms to base 1000 or base 1024 logarithms
-double _logBase(num x, num _base) => Math.log(x) / Math.log(_base);
+double _logBase(final num x, final num basee) => math.log(x) / math.log(basee);
 
-extension ListUnitX on List<Unit> {
+extension _ListUnitX on List<Unit> {
   List<Unit> sortFromSmallestToLargest() => this
-    ..sort((unitA, unitB) =>
-        unitA.orderOfMagnitude.compareTo(unitB.orderOfMagnitude));
+    ..sort(
+      (final Unit unitA, final Unit unitB) =>
+          unitA.orderOfMagnitude.compareTo(unitB.orderOfMagnitude),
+    );
 
   List<Unit> sortFromLargestToSmallest() => this
-    ..sort((unitA, unitB) =>
-        unitB.orderOfMagnitude.compareTo(unitA.orderOfMagnitude));
+    ..sort(
+      (final Unit unitA, final Unit unitB) =>
+          unitB.orderOfMagnitude.compareTo(unitA.orderOfMagnitude),
+    );
 }
