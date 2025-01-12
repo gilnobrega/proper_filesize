@@ -1,9 +1,8 @@
 # proper_filesize
 
-**A self-contained Dart library that converts between bytes and human-readable file sizes.**
+**A self-contained Dart library for seamlessly converting between bytes and human-readable file sizes.**
 
-Easily convert raw byte values into human-readable file sizes like "1.2 KB" or "3.5 MB", and vice versa.
-Supports both binary (KiB, MiB, GiB) and metric (KB, MB, GB) units.
+Effortlessly convert raw byte values into human-readable file sizes like "1.2 KB" or "3.5 MB", and vice versa. Supports both binary (KiB, MiB, GiB) and metric (KB, MB, GB) units.
 
 ## Features
 
@@ -69,16 +68,16 @@ print("$bytes bytes is $binaryFilesize");
 // Output: 1243560000 bytes is 1.158 GiB
 ```
 
-#### Further Examples
+### Further Examples
 
-For detailed examples of usage, including:
+For more comprehensive examples, explore the following use cases in the [example.dart](example/example.dart) file:
 
-  * Parsing file size strings to numeric values
-  * Converting numeric values to file size strings
-  * Customizing decimal precision
-  * Using long format types
-  * Providing explicit units
-  * Parsing long-format strings
-  * Converting units with explicit unit conversion
+  * Customizing Decimal Precision: Control the number of decimal places in the output.
+  * Using Long Format Types: Display units in their full form (e.g., "kilobyte" instead of "KB").
+  * Providing Explicit Units: Specify the desired output unit.
+  * Parsing Long-Format Strings: Parse strings with long-form units.
+  * Converting Units with Explicit Unit Conversion: Convert between different units directly.
 
-Please refer to the comprehensive examples provided in the [example.dart](example/example.dart) file.
+## Contributions
+
+We welcome your contributions\! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request on [GitHub](https://github.com/gilnobrega/proper_filesize).
