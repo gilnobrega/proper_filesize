@@ -1,8 +1,10 @@
-# proper_filesize
+[![pub package](https://img.shields.io/pub/v/proper_filesize.svg)](https://pub.dev/packages/proper_filesize)
+[![license](https://img.shields.io/github/license/gilnobrega/proper_filesize)](https://github.com/gilnobrega/proper_filesize/blob/main/LICENSE)
+[![code style: lints](https://img.shields.io/badge/style-%2F%2F%20lints-40c4ff.svg)](https://pub.dev/packages/lints)
 
 **A self-contained Dart library for seamlessly converting between bytes and human-readable file sizes.**
 
-Effortlessly convert raw byte values into human-readable file sizes like "1.2 KB" or "3.5 MB", and vice versa. Supports both binary (KiB, MiB, GiB) and metric (KB, MB, GB) units.
+Effortlessly convert raw byte values into human-readable file sizes like "1.2 KB" or "3.5 MB", and vice versa. This is ideal for displaying file sizes in user interfaces, handling file uploads, processing data storage information, and more. Supports both binary (KiB, MiB, GiB) and metric (KB, MB, GB) units.
 
 ## Features
 
@@ -14,14 +16,32 @@ Effortlessly convert raw byte values into human-readable file sizes like "1.2 KB
 
 ## Installation
 
-Add `proper_filesize` as a dependency to your project's `pubspec.yaml` file:
+Add `proper_filesize` as a dependency to your project. You can do this easily by running the following command in your terminal:
+
+```bash
+dart pub add proper_filesize
+```
+
+Or, manually add it to your project's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
   proper_filesize: ^1.0.0
 ```
 
+Then run:
+
+```bash
+dart pub get
+```
+
 ## Usage
+
+First, import the library:
+
+```dart
+import 'package:proper_filesize/proper_filesize.dart';
+```
 
 ### Parsing File Size String to Numeric Value
 
@@ -70,7 +90,7 @@ print("$bytes bytes is $binaryFilesize");
 
 ### Further Examples
 
-For more comprehensive examples, explore the following use cases in the [example.dart](example/example.dart) file:
+For more comprehensive examples, explore the following use cases in the [example.dart](https://pub.dev/packages/proper_filesize/example) file:
 
   * Customizing Decimal Precision: Control the number of decimal places in the output.
   * Using Long Format Types: Display units in their full form (e.g., "kilobyte" instead of "KB").
@@ -78,6 +98,10 @@ For more comprehensive examples, explore the following use cases in the [example
   * Parsing Long-Format Strings: Parse strings with long-form units.
   * Converting Units with Explicit Unit Conversion: Convert between different units directly.
 
+## API Documentation
+
+For detailed information about all classes and methods, see the full [API documentation](https://pub.dev/documentation/proper_filesize/latest/).
+
 ## Contributions
 
-We welcome your contributions\! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request on [GitHub](https://github.com/gilnobrega/proper_filesize).
+We welcome contributions\! Whether you have a bug report, a feature request, or want to contribute code, please feel free to open an issue or submit a pull request on [GitHub](https://github.com/gilnobrega/proper_filesize).
