@@ -1,12 +1,13 @@
 name: proper_filesize
-description: a self-contained dart library that converts bytes to human readable file sizes and backwards. Supports binary and metric units.
-version: 0.0.2
-homepage: https://github.com/joaquimguimaraes/proper_filesize
+description: Easily convert and format file sizes in your Dart applications. This library handles bytes, metric/binary units, and provides human-readable output for user interfaces, data processing, and more.
+version: 1.0.0
+homepage: https://github.com/gilnobrega/proper_filesize
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
-# Or, if you just want `analysis_options.yaml`, it can be a dev dependency.
-dev_dependencies:
-  lints: ^1.0.1
 dependencies: 
+
+dev_dependencies:
+  lints: ^5.1.1
+  test: ^1.25.14
