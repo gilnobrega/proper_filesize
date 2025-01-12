@@ -22,23 +22,13 @@ final class FileSize {
   FileSize.parse(
     String input,
   ) : size = (() {
-          input = input.trim();
-
           final detectedUnit = Unit.parse(input);
-
-          final parsedValue = num.parse(
-            input.substring(
-                input.codeUnits.indexWhere((codeUnit) => codeUnit.isNumeric()),
-                input.codeUnits
-                        .lastIndexWhere((codeUnit) => codeUnit.isNumeric()) +
-                    1),
-          );
-
-          return (parsedValue *
-              Math.pow(
+          final parsedValue = num.parse(input.numericPart);
+          final multiplierToBytes = Math.pow(
                 detectedUnit.baseType.value,
                 detectedUnit.orderOfMagnitude,
-              ));
+          );
+          return (parsedValue * multiplierToBytes);
         })();
 
   /// Generates a human readable string in xiB or xB from an int size in bytes
@@ -55,9 +45,15 @@ final class FileSize {
       baseType: BaseType.binary,
     );
 
-    num value = toSize(unit: unit);
+    final value = toSize(unit: unit);
 
-    return "${value.toStringAsFixed(decimals)} ${unit.representation[formatType]}";
+    final valueStr = ((value % 1 == 0)
+        ? value.toInt().toString()
+        : value.toStringAsFixed(decimals));
+
+    final unitStr = unit.representation[formatType]!;
+
+    return "$valueStr $unitStr";
   }
 
   num toSize({required Unit unit}) {
@@ -67,4 +63,10 @@ final class FileSize {
 
 extension _IntX on int {
   bool isNumeric() => '0123456789'.codeUnits.contains(this);
+}
+
+extension _StringX on String {
+  String get numericPart => substring(
+      codeUnits.indexWhere((codeUnit) => codeUnit.isNumeric()),
+      codeUnits.lastIndexWhere((codeUnit) => codeUnit.isNumeric()) + 1);
 }

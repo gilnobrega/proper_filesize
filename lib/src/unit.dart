@@ -77,7 +77,7 @@ enum Unit {
   ),
   kibibyte(
     orderOfMagnitude: 1,
-    baseType: BaseType.metric,
+    baseType: BaseType.binary,
     representation: {
       FormatType.short: 'KiB',
       FormatType.long: 'kibibyte',
@@ -155,20 +155,25 @@ enum Unit {
     required num size,
     required BaseType baseType,
   }) {
-    final inputOrderOfMagnitude = _logBase(size, baseType.value).floor();
+    final inputOrderOfMagnitude =
+        size < baseType.value ? 0 : _logBase(size, baseType.value).floor();
     return Unit.values
         .where((unit) => unit.baseType == baseType)
         .toList()
         .sortFromSmallestToLargest()
-        .lastWhere((unit) => unit.orderOfMagnitude <= inputOrderOfMagnitude);
+        .lastWhere(
+          (unit) => unit.orderOfMagnitude <= inputOrderOfMagnitude,
+          orElse: () => Unit.byte,
+        );
   }
 
   static Unit parse(String input) {
-    input = input.trim();
-
-    return Unit.values.toList().sortFromLargestToSmallest().firstWhere((unit) =>
-        unit.representation.entries
-            .any((entry) => input.contains(entry.value)));
+    return Unit.values.toList().sortFromLargestToSmallest().firstWhere(
+          (unit) => unit.representation.entries.any(
+            (entry) => input.contains(entry.value),
+          ),
+          orElse: () => Unit.byte,
+        );
   }
 }
 

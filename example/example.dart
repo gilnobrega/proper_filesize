@@ -18,7 +18,7 @@ main() {
   ); // 1.2 EB is 1200000000000000000 bytes
 
   // Now suppose you want to generate a human readable filesize from 1.24356e9 bytes up to 3 decimals
-  num bytes = 1.24356e9;
+  int bytes = 1.24356e9.toInt();
   String metricHumanReadableFilesize = FileSize(bytes).toString(
     unit: Unit.auto(size: bytes, baseType: BaseType.metric),
   );
