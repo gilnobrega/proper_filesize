@@ -23,26 +23,28 @@ void main() {
   // Now suppose you want to generate a human readable filesize from 1.24356e9 
   // bytes up to 3 decimals
   final int bytes = 1.24356e9.toInt();
-  final String metricHumanReadableFilesize = FileSize(bytes).toString(
+  final String metricHumanReadableFilesize = FileSize.fromBytes(bytes).toString(
     unit: Unit.auto(size: bytes, baseType: BaseType.metric),
   );
   print(
     "$bytes bytes is $metricHumanReadableFilesize",
   ); // 1243560000 bytes is 1.244 GB
 
-  final String binaryHumanReadableFilesize = FileSize(bytes).toString();
+  final String binaryHumanReadableFilesize =
+      FileSize.fromBytes(bytes).toString();
   print(
     "$bytes bytes is $binaryHumanReadableFilesize",
   ); // 1243560000 bytes is 1.158 GiB
 
   // Generate a binary unit string with 2 decimal places
-  final String binaryFilesize2Decimals = FileSize(bytes).toString(decimals: 2);
+  final String binaryFilesize2Decimals =
+      FileSize.fromBytes(bytes).toString(decimals: 2);
   print(
     "$bytes bytes is $binaryFilesize2Decimals",
   ); // 1243560000 bytes is 1.16 GiB
 
   // Generate a metric unit string with the full unit name ("gigabyte")
-  final String metricFilesizeLong = FileSize(bytes).toString(
+  final String metricFilesizeLong = FileSize.fromBytes(bytes).toString(
     unit: Unit.auto(size: bytes, baseType: BaseType.metric),
     formatType: FormatType.long,
   );
@@ -51,7 +53,7 @@ void main() {
   ); // 1243560000 bytes is 1.244 gigabyte
 
   // Generate a binary unit string with the full unit name ("gibibyte")
-  final String binaryFilesizeLong = FileSize(bytes).toString(
+  final String binaryFilesizeLong = FileSize.fromBytes(bytes).toString(
     unit: Unit.auto(size: bytes, baseType: BaseType.binary),
     formatType: FormatType.long,
   );
@@ -61,7 +63,7 @@ void main() {
 
   // Generate a string with the explicit unit "gigabyte"
   final String explicitUnitFilesize =
-      FileSize(bytes).toString(unit: Unit.gigabyte);
+      FileSize.fromBytes(bytes).toString(unit: Unit.gigabyte);
   print(
     "$bytes bytes is $explicitUnitFilesize",
   ); // 1243560000 bytes is 1.244 GB
@@ -76,7 +78,7 @@ void main() {
   // Convert a unit to a String with explicit unit conversion
   const num terabyteSize = 20.59;
   final String explicitUnitConversionStr =
-      FileSize(terabyteSize, inputUnit: Unit.terabyte)
+      FileSize.fromUnit(size: terabyteSize, unit: Unit.terabyte)
           .toString(unit: Unit.gibibyte);
   print(
     "$terabyteSize terabytes is $explicitUnitConversionStr",
@@ -85,7 +87,7 @@ void main() {
   // Convert a unit to a another size with explicit unit
   const num gigabytesize = 401.26;
   final num explicitUnitConversion =
-      FileSize(gigabytesize, inputUnit: Unit.gigabyte)
+      FileSize.fromUnit(size: gigabytesize, unit: Unit.gigabyte)
       .toSize(unit: Unit.mebibyte);
   print(
     "$gigabytesize gigabytes is $explicitUnitConversion mebibytes",

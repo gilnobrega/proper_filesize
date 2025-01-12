@@ -16,16 +16,18 @@ import "package:proper_filesize/src/unit.dart";
 /// representations of file sizes.
 final class FileSize {
   /// Creates a [FileSize] object from a [size] in bytes.
-  ///
-  /// The [inputUnit] parameter specifies the unit of the input size.
-  /// It defaults to [Unit.byte].
-  FileSize(
-    final num size, {
-    final Unit inputUnit = Unit.byte,
+  FileSize.fromBytes(
+    this.size,
+  );
+
+  /// Creates a [FileSize] object from a [size] in the specified [unit].
+  FileSize.fromUnit({
+    required final num size,
+    required final Unit unit,
   }) : size = size *
             math.pow(
-              inputUnit.baseType.value,
-              inputUnit.orderOfMagnitude,
+              unit.baseType.value,
+              unit.orderOfMagnitude,
             );
 
   /// Creates a [FileSize] object from a human-readable filesize string.
@@ -41,6 +43,7 @@ final class FileSize {
                 detectedUnit.baseType.value,
                 detectedUnit.orderOfMagnitude,
           );
+
           return parsedValue * multiplierToBytes;
         })();
 
@@ -65,13 +68,11 @@ final class FileSize {
       size: size,
       baseType: BaseType.binary,
     );
-
     final num value = toSize(unit: unit);
 
     final String valueStr = ((value % 1 == 0)
         ? value.toInt().toString()
         : value.toStringAsFixed(decimals));
-
     final String unitStr = unit.representation[formatType]!;
 
     return "$valueStr $unitStr";

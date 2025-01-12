@@ -69,7 +69,7 @@ void main() {
       const int bytes = 1000;
 
       // Act
-      final String result = FileSize(bytes).toString();
+      final String result = FileSize.fromBytes(bytes).toString();
 
       // Assert
       expect(result, "1000 B");
@@ -83,7 +83,7 @@ void main() {
       const int bytes = 1024;
 
       // Act
-      final String result = FileSize(bytes).toString();
+      final String result = FileSize.fromBytes(bytes).toString();
 
       // Assert
       expect(result, "1 KiB");
@@ -97,7 +97,7 @@ void main() {
       const int bytes = 1243560000;
 
       // Act
-      final String result = FileSize(bytes).toString();
+      final String result = FileSize.fromBytes(bytes).toString();
 
       // Assert
       expect(result, "1.158 GiB");
@@ -111,7 +111,7 @@ void main() {
       const int bytes = 1243560000;
 
       // Act
-      final String result = FileSize(bytes).toString(
+      final String result = FileSize.fromBytes(bytes).toString(
         unit: Unit.auto(size: bytes, baseType: BaseType.metric),
       );
 
@@ -127,7 +127,7 @@ void main() {
       const int bytes = 1243560000;
 
       // Act
-      final String result = FileSize(bytes).toString(decimals: 2);
+      final String result = FileSize.fromBytes(bytes).toString(decimals: 2);
 
       // Assert
       expect(result, "1.16 GiB");
@@ -141,7 +141,7 @@ void main() {
       const int bytes = 1000;
 
       // Act
-      final String result = FileSize(bytes).toString(
+      final String result = FileSize.fromBytes(bytes).toString(
         unit: Unit.auto(size: bytes, baseType: BaseType.metric),
         formatType: FormatType.long,
       );
@@ -158,7 +158,7 @@ void main() {
       const int bytes = 1024;
 
       // Act
-      final String result = FileSize(bytes).toString(
+      final String result = FileSize.fromBytes(bytes).toString(
         unit: Unit.auto(size: 1024, baseType: BaseType.binary),
         formatType: FormatType.long,
       );
@@ -175,7 +175,8 @@ void main() {
       const int bytes = 243560000;
 
       // Act
-      final String result = FileSize(bytes).toString(unit: Unit.gigabyte);
+      final String result =
+          FileSize.fromBytes(bytes).toString(unit: Unit.gigabyte);
 
       // Assert
       expect(result, "0.244 GB");
@@ -191,7 +192,7 @@ void main() {
       const num gigabytes = 401.26;
 
       // Act
-      final num result = FileSize(gigabytes, inputUnit: Unit.gigabyte)
+      final num result = FileSize.fromUnit(size: gigabytes, unit: Unit.gigabyte)
           .toSize(unit: Unit.mebibyte);
 
       // Assert
