@@ -1,6 +1,9 @@
 # Changelog
 
-## 1.0.0 (2025-01-12)
+## 1.0.1
+- Update package description
+
+## 1.0.0
 
 ### Features
 
@@ -26,8 +29,8 @@
 *   The `ProperFilesize` class has been replaced by the `FileSize` class.
 *   The `generateHumanReadableFilesize` and `parseHumanReadableFilesize` methods have been replaced by the `FileSize` constructors and `toString` method.
 
-## 0.0.2 - Documentation Update
+## 0.0.2
 - Updates documentation
   
-## 0.0.1 - Initial Release
+## 0.0.1
 - Initial release

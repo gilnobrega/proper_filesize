@@ -20,7 +20,7 @@ void main() {
     "$metricFilesize is $metricBytes bytes",
   ); // 1.2 EB is 1200000000000000000 bytes
 
-  // Now suppose you want to generate a human readable filesize from 1.24356e9 
+  // Now suppose you want to generate a human readable filesize from 1.24356e9
   // bytes up to 3 decimals
   final int bytes = 1.24356e9.toInt();
   final String metricHumanReadableFilesize = FileSize.fromBytes(bytes).toString(
@@ -88,7 +88,7 @@ void main() {
   const num gigabytesize = 401.26;
   final num explicitUnitConversion =
       FileSize.fromUnit(size: gigabytesize, unit: Unit.gigabyte)
-      .toSize(unit: Unit.mebibyte);
+          .toSize(unit: Unit.mebibyte);
   print(
     "$gigabytesize gigabytes is $explicitUnitConversion mebibytes",
   ); // 401.26 gigabytes is 382671.3562011719 mebibytes
