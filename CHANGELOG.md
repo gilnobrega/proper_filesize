@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+*   **Pluralization:** Ensured proper pluralization for long format units.
+*   **Documentation:** Clarified usage instructions and examples in the README.
+*   **Typo:** Fix typo in `Unit.zetabyte` -> `Unit.zettabyte`
+
 ## 1.0.1
 - Update package description
 

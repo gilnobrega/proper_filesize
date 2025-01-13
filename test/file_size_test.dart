@@ -151,6 +151,23 @@ void main() {
     });
 
     test('''
+        SHOULD return "5 megabytes" 
+        WHEN filesize is 5000000 bytes and formatType is long
+        ''', () {
+      // Arrange
+      const int bytes = 5000000;
+
+      // Act
+      final String result = FileSize.fromBytes(bytes).toString(
+        unit: Unit.auto(size: bytes, baseType: BaseType.metric),
+        formatType: FormatType.long,
+      );
+
+      // Assert
+      expect(result, "5 megabytes");
+    });
+
+    test('''
         SHOULD return "1 kibibyte" 
         WHEN filesize is 1024 bytes and formatType is long
         ''', () {

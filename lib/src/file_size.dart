@@ -74,8 +74,12 @@ final class FileSize {
         ? value.toInt().toString()
         : value.toStringAsFixed(decimals));
     final String unitStr = unit.representation[formatType]!;
+    final String pluralUnit = switch (formatType) {
+      FormatType.long when value != 1 => "s",
+      _ => "",
+    };
 
-    return "$valueStr $unitStr";
+    return "$valueStr $unitStr$pluralUnit";
   }
 
   /// Returns the size in the specified [unit].

@@ -50,7 +50,7 @@ void main() {
   );
   print(
     "$bytes bytes is $metricFilesizeLong",
-  ); // 1243560000 bytes is 1.244 gigabyte
+  ); // 1243560000 bytes is 1.244 gigabytes
 
   // Generate a binary unit string with the full unit name ("gibibyte")
   final String binaryFilesizeLong = FileSize.fromBytes(bytes).toString(
@@ -59,7 +59,7 @@ void main() {
   );
   print(
     "$bytes bytes is $binaryFilesizeLong",
-  ); // 1243560000 bytes is 1.158 gibibyte
+  ); // 1243560000 bytes is 1.158 gibibytes
 
   // Generate a string with the explicit unit "gigabyte"
   final String explicitUnitFilesize =

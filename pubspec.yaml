@@ -1,6 +1,6 @@
 name: proper_filesize
 description: Standalone file size conversion and formatting library. Generate human-readable output for UIs. Supports metric/binary units (KB, KiB, MB, MiB, etc.)
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/gilnobrega/proper_filesize
 
 environment:
