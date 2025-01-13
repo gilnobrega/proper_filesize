@@ -1,12 +1,12 @@
 # Changelog
 
 ## 1.0.2
-*   **Pluralization:** Ensured proper pluralization for long format units.
-*   **Documentation:** Clarified usage instructions and examples in the README.
-*   **Typo:** Fix typo in `Unit.zetabyte` -> `Unit.zettabyte`
+*   **Pluralization:** Fixed pluralization for long-format units (e.g., "2 megabytes" instead of "2 megabyte").
+*   **Typo:** Corrected `Unit.zetabyte` to `Unit.zettabyte`.
+*   **README:** Minor clarifications to usage instructions and examples.
 
 ## 1.0.1
-- Update package description
+*   **Docs:** Improved package description for pub.dev.
 
 ## 1.0.0
 
