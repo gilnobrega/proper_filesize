@@ -40,8 +40,8 @@ final class FileSize {
           final Unit detectedUnit = Unit.parse(input);
           final num parsedValue = num.parse(input.numericPart);
           final num multiplierToBytes = math.pow(
-                detectedUnit.baseType.value,
-                detectedUnit.orderOfMagnitude,
+            detectedUnit.baseType.value,
+            detectedUnit.orderOfMagnitude,
           );
 
           return parsedValue * multiplierToBytes;
