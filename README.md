@@ -4,7 +4,11 @@
 
 **A self-contained Dart library for seamlessly converting between bytes and human-readable file sizes.**
 
-Effortlessly convert raw byte values into human-readable file sizes like "1.2 KB" or "3.5 MB", and vice versa. This is ideal for displaying file sizes in user interfaces, handling file uploads, processing data storage information, and more. Supports both binary (KiB, MiB, GiB) and metric (KB, MB, GB) units.
+Effortlessly convert raw byte values into human-readable file sizes like "1.2 KB" or "3.5 MB", and vice versa.
+
+This is ideal for displaying file sizes in user interfaces, handling file uploads, processing data storage information, and more.
+
+Supports both binary (KiB, MiB, GiB) and metric (KB, MB, GB) units.
 
 ## Features
 
@@ -26,7 +30,7 @@ Or, manually add it to your project's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  proper_filesize: ^1.0.0
+  proper_filesize: ^1.0.2
 ```
 
 Then run:
@@ -76,14 +80,14 @@ import 'package:proper_filesize/proper_filesize.dart';
 int bytes = 1243560000;
 
 // Using metric units (KB, MB, GB)
-String metricFilesize = FileSize(bytes).toString(
+String metricFilesize = FileSize.fromBytes(bytes).toString(
   unit: Unit.auto(size: bytes, baseType: BaseType.metric),
 );
 print("$bytes bytes is $metricFilesize"); 
 // Output: 1243560000 bytes is 1.244 GB
 
 // Using binary units (KiB, MiB, GiB)
-String binaryFilesize = FileSize(bytes).toString();
+String binaryFilesize = FileSize.fromBytes(bytes).toString();
 print("$bytes bytes is $binaryFilesize"); 
 // Output: 1243560000 bytes is 1.158 GiB
 ```

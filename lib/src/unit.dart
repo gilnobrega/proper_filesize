@@ -75,8 +75,8 @@ enum Unit {
     },
   ),
 
-  /// The zetabyte unit.
-  zetabyte(
+  /// The zettabyte unit.
+  zettabyte(
     orderOfMagnitude: 7,
     baseType: BaseType.metric,
     representation: <FormatType, String>{
@@ -173,8 +173,7 @@ enum Unit {
       FormatType.short: "YiB",
       FormatType.long: "yobibyte",
     },
-  ),
-  ;
+  );
 
   /// Creates a [Unit] object.
   ///
